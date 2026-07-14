@@ -27,9 +27,9 @@ jobs:
         run: npm run build
 
       - name: List dist contents
-        run: ls -la dist/
+        run: find dist -type f
 
       - name: Publish to npm
-        run: npm publish --access public
+        run: npm run deploy
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
