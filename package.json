@@ -20,7 +20,7 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "build": "tsc",
-        "publish": "npm publish --access public",
+        "publish": "npm run build && npm publish --access public",
         "version": "npm view @kreqel/common version --registry=https://registry.npmjs.org",
         "patch": "npm version patch",
         "minor": "npm version minor",
