@@ -1,0 +1,24 @@
+{
+  "jsc": {
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["./src/core/*"],
+      "@common/*": ["./src/common/*"],
+      "@modules/*": ["./src/modules/*"]
+    },
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true,
+      "dynamicImport": true
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
+    },
+    "target": "es2020"
+  },
+  "module": { "type": "commonjs" },
+  "minify": false,
+  "sourceMaps": true,
+  "$schema": "https://swc.rs/schema.json"
+}

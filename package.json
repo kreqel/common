@@ -1,0 +1,140 @@
+{
+    "name": "@kreqel/common",
+    "version": "1.0.0",
+    "description": "Shared configs, utilities, and NestJS common modules for Kreqel microservices",
+    "author": "Ihar Tsitou",
+    "license": "MIT",
+    "keywords": [
+        "eslint",
+        "prettier",
+        "typescript",
+        "swc",
+        "nestjs",
+        "common",
+        "decorators",
+        "filters",
+        "interceptors",
+        "exceptions"
+    ],
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "publish": "npm publish --access public",
+        "version": "npm view @kreqel/common version --registry=https://registry.npmjs.org",
+        "patch": "npm version patch",
+        "minor": "npm version minor",
+        "major": "npm version major"
+    },
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        },
+        "./eslint": {
+            "import": "./eslint.config.js",
+            "require": "./eslint.config.js"
+        },
+        "./prettier": {
+            "import": "./prettier.config.js",
+            "require": "./prettier.config.js"
+        },
+        "./tsconfig.json": "./tsconfig.json",
+        "./tsconfig.build.json": "./tsconfig.build.json",
+        "./swcrc": "./.swcrc",
+        "./constants": {
+            "import": "./dist/constants/index.js",
+            "require": "./dist/constants/index.js",
+            "types": "./dist/constants/index.d.ts"
+        },
+        "./decorators": {
+            "import": "./dist/decorators/index.js",
+            "require": "./dist/decorators/index.js",
+            "types": "./dist/decorators/index.d.ts"
+        },
+        "./dto": {
+            "import": "./dist/dto/index.js",
+            "require": "./dist/dto/index.js",
+            "types": "./dist/dto/index.d.ts"
+        },
+        "./exceptions": {
+            "import": "./dist/exceptions/index.js",
+            "require": "./dist/exceptions/index.js",
+            "types": "./dist/exceptions/index.d.ts"
+        },
+        "./filters": {
+            "import": "./dist/filters/index.js",
+            "require": "./dist/filters/index.js",
+            "types": "./dist/filters/index.d.ts"
+        },
+        "./interceptors": {
+            "import": "./dist/interceptors/index.js",
+            "require": "./dist/interceptors/index.js",
+            "types": "./dist/interceptors/index.d.ts"
+        },
+        "./types": {
+            "import": "./dist/types/index.js",
+            "require": "./dist/types/index.js",
+            "types": "./dist/types/index.d.ts"
+        }
+    },
+    "files": [
+        "dist",
+        "eslint.config.js",
+        "prettier.config.js",
+        "tsconfig.json",
+        "tsconfig.build.json",
+        ".swcrc",
+        "README.md"
+    ],
+    "peerDependencies": {
+        "@nestjs/common": "^11.0.1",
+        "@fastify/cookie": "^11.0.2",
+        "@nestjs/core": "^11.0.1",
+        "@nestjs/swagger": "^11.2.6",
+        "@prisma/client": "^7.8.0",
+        "@typescript-eslint/eslint-plugin": "^8.20.0",
+        "@typescript-eslint/parser": "^8.20.0",
+        "class-transformer": "^0.5.1",
+        "class-validator": "^0.15.1",
+        "eslint": "^9.18.0",
+        "eslint-config-prettier": "^10.0.1",
+        "eslint-plugin-prettier": "^5.2.2",
+        "fastify": "^4.0.0",
+        "globals": "^16.0.0",
+        "prettier": "^3.4.2",
+        "reflect-metadata": "^0.2.2",
+        "rxjs": "^7.8.1",
+        "typescript": "^5.8.2"
+    },
+    "peerDependenciesMeta": {
+        "@nestjs/swagger": {
+            "optional": true
+        },
+        "@prisma/client": {
+            "optional": true
+        },
+        "class-transformer": {
+            "optional": true
+        },
+        "class-validator": {
+            "optional": true
+        },
+        "fastify": {
+            "optional": true
+        }
+    },
+    "devDependencies": {
+        "@nestjs/common": "^11.0.1",
+        "@nestjs/core": "^11.0.1",
+        "@nestjs/swagger": "^11.2.6",
+        "@prisma/client": "^7.8.0",
+        "@types/node": "^22.20.0",
+        "class-transformer": "^0.5.1",
+        "class-validator": "^0.15.1",
+        "fastify": "^4.0.0",
+        "reflect-metadata": "^0.2.2",
+        "typescript": "^5.8.2"
+    }
+}
