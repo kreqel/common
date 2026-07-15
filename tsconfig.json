@@ -12,7 +12,7 @@
         "strict": true,
         "target": "ES2023",
         "sourceMap": true,
-        "incremental": true,
+        "incremental": false,
         "skipLibCheck": true,
         "strictNullChecks": true,
         "forceConsistentCasingInFileNames": true,

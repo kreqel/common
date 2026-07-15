@@ -88,8 +88,7 @@
         "prettier.config.js",
         "tsconfig.json",
         "tsconfig.build.json",
-        ".swcrc",
-        "README.md"
+        ".swcrc"
     ],
     "peerDependencies": {
         "@fastify/cookie": "^11.0.2",
