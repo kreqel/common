@@ -1,4 +1,3 @@
-// @ts-check
 import eslint from '@eslint/js';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
@@ -6,7 +5,13 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['eslint.config.mjs', "ecosystem.config.js", "./etc/artillery/functions.js"],
+    ignores: [
+      'eslint.config.mjs',
+      "ecosystem.config.js",
+      'prisma.config.ts',
+      'prettier.config.js',
+      'eslint.config.js',
+],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommendedTypeChecked,

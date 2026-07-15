@@ -1,6 +1,13 @@
 import { ERROR_PREFIXES } from '../constants/error-keys';
 import { ErrorResponseDto } from '../dtos/error.response.dto';
-import { Catch, ExceptionFilter, ArgumentsHost, HttpException, HttpStatus, Logger } from '@nestjs/common';
+import {
+    Catch,
+    ExceptionFilter,
+    ArgumentsHost,
+    HttpException,
+    HttpStatus,
+    Logger,
+} from '@nestjs/common';
 import { FastifyReply } from 'fastify';
 
 interface NestErrorResponse {
@@ -17,7 +24,10 @@ type CombinedResponse = NestErrorResponse & AppErrorResponse;
 
 @Catch(HttpException)
 export class HttpExceptionFilter implements ExceptionFilter<HttpException> {
-    constructor(private readonly loggerService: Logger) {}
+    private readonly loggerService = new Logger(HttpExceptionFilter.name);
+
+    constructor() {}
+
     catch(exception: HttpException, host: ArgumentsHost) {
         const ctx = host.switchToHttp();
         const reply = ctx.getResponse<FastifyReply>();
