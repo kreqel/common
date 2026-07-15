@@ -6,3 +6,4 @@ export * from './filters';
 export * from './interceptors';
 export * from './types';
 export * from './common.module';
+import './extensions/fastify-request';
