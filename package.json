@@ -1,6 +1,6 @@
 {
     "name": "@kreqel/common",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "description": "Shared configs, utilities, and NestJS common modules for Kreqel microservices",
     "author": "Ihar Tsitou",
     "license": "MIT",
