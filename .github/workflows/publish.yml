@@ -23,11 +23,26 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build package
-        run: npm run build
+      - name: Clean and build package (for CI)
+        run: npm run rebuild
 
-      - name: List dist contents
-        run: find dist -type f
+      - name: List dist contents after rebuild
+        run: |
+          echo "=== dist contents after rebuild ==="
+          find dist -type f | sort
+
+      - name: Show file list of the entire package
+        run: |
+          echo "=== All files in package (excluding node_modules) ==="
+          find . -not -path "./node_modules/*" -not -path "./.git/*" -type f | sort
+
+      - name: Create a tarball for inspection
+        run: npm pack
+
+      - name: List contents of the generated tarball
+        run: |
+          echo "=== Contents of tarball ==="
+          tar -tzf kreqel-common-*.tgz | sort
 
       - name: Publish to npm
         run: npm run deploy
