@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import FastifyRequest from 'fastify';
-import { RequestCookiesType, RequestUserType } from '../types';
+import { RequestCookiesType, RequestUserType } from '.';
 
 declare module 'fastify' {
     export interface FastifyRequest {

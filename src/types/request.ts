@@ -1,6 +1,6 @@
 export type RequestUserType = {
     sub: string;
-    type: string;
+    type?: string;
     email?: string;
 };
 
