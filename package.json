@@ -27,7 +27,8 @@
         "version": "npm view @kreqel/common version --registry=https://registry.npmjs.org",
         "patch": "npm version patch",
         "minor": "npm version minor",
-        "major": "npm version major"
+        "major": "npm version major",
+        "proto:generate": "npx protoc -I ./src/proto ./src/proto/*.proto --ts_proto_out=./src/proto/gen --ts_proto_opt=nestJs=true,package=omit"
     },
     "exports": {
         ".": {
@@ -136,8 +137,13 @@
         "class-transformer": "^0.5.1",
         "class-validator": "^0.15.1",
         "fastify": "^5.0.0",
+        "protoc": "^35.1.0",
         "reflect-metadata": "^0.2.2",
+        "ts-proto": "^2.12.0",
         "typescript": "^5.8.2",
         "typescript-eslint": "^8.64.0"
+    },
+    "dependencies": {
+        "@nestjs/microservices": "^11.1.28"
     }
 }

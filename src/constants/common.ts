@@ -1,6 +1,6 @@
 import { join } from 'path';
 
-export const PROTO_PATH = 'node_modules/@kreqel/common/dist/constants';
+export const PROTO_PATH = 'node_modules/@kreqel/common/dist/proto/gen';
 
 interface Package {
     package: string;
