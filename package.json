@@ -20,15 +20,17 @@
     "types": "dist/index.d.ts",
     "scripts": {
         "clean": "rm -rf dist",
-        "build": "tsc",
+        "proto:generate": "npx protoc -I ./src/proto ./src/proto/*.proto --ts_proto_out=./src/proto/gen --ts_proto_opt=nestJs=true,package=omit",
+        "proto:copy": "cp -r src/proto dist/",
+        "prebuild": "npm run proto:generate",
+        "build": "tsc && npm run proto:copy",
         "rebuild": "npm run clean && npm run build",
-        "prepublishOnly": "echo 'Running prepublishOnly...' && npm run build && echo 'Build finished, dist contents:' && ls -la dist/",
+        "prepublishOnly": "npm run rebuild",
         "deploy": "npm publish --access public",
         "version": "npm view @kreqel/common version --registry=https://registry.npmjs.org",
         "patch": "npm version patch",
         "minor": "npm version minor",
-        "major": "npm version major",
-        "proto:generate": "npx protoc -I ./src/proto ./src/proto/*.proto --ts_proto_out=./src/proto/gen --ts_proto_opt=nestJs=true,package=omit"
+        "major": "npm version major"
     },
     "exports": {
         ".": {
