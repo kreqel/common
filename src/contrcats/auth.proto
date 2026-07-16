@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package auth.v1;
+
+service AuthService {
+  rpc Register (RegisterRequest) returns (AuthResponse) {}
+  rpc Login (LoginRequest) returns (AuthResponse) {}
+  rpc Refresh (RefreshRequest) returns (AuthResponse) {}
+  rpc Logout (LogoutRequest) returns (LogoutResponse) {}
+  rpc GetProfile (GetProfileRequest) returns (ProfileResponse) {}
+}
+
+// --- Requests ---
+message RegisterRequest {
+  string email = 1;
+  string password = 2;
+  string device_info = 3;
+  string ip = 4;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+  string device_info = 3;
+  string ip = 4;
+}
+
+message LogoutRequest {
+  string refresh_token = 1;
+}
+
+message RefreshRequest {
+  string refresh_token = 1;
+  string device_info = 2;
+  string ip = 3;
+}
+
+message GetProfileRequest {
+  string user_id = 1;
+}
+
+// --- Responses ---
+message AuthResponse {
+  string access_token = 1;
+  string refresh_token = 2;
+}
+
+message LogoutResponse {
+  bool success = 1;
+}
+
+message ProfileResponse {
+  string id = 1;
+  string email = 2;
+  optional string display_name = 3;
+  optional string avatar_url = 4;
+  string created_at = 5;
+}
