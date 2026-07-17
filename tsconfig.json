@@ -1,8 +1,7 @@
 {
     "compilerOptions": {
-        "ignoreDeprecations": "6.0",
-        "module": "commonjs",
-        "moduleResolution": "node",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
         "esModuleInterop": true,
         "isolatedModules": true,
         "declaration": true,
