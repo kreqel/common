@@ -83,6 +83,11 @@
             "import": "./dist/types/index.js",
             "require": "./dist/types/index.js",
             "types": "./dist/types/index.d.ts"
+        },
+        "./proto": {
+            "import": "./dist/proto/gen/auth.js",
+            "require": "./dist/proto/gen/auth.js",
+            "types": "./dist/proto/gen/auth.d.ts"
         }
     },
     "files": [
