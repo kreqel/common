@@ -5,109 +5,97 @@
 // source: auth.proto
 
 /* eslint-disable */
-import { GrpcMethod, GrpcStreamMethod } from '@nestjs/microservices';
-import { Observable } from 'rxjs';
+import { GrpcMethod, GrpcStreamMethod } from "@nestjs/microservices";
+import { Observable } from "rxjs";
 
-export const protobufPackage = 'auth.v1';
+export const protobufPackage = "auth.v1";
 
 /** --- Requests --- */
 export interface RegisterRequest {
-    email: string;
-    password: string;
-    deviceInfo: string;
-    ip: string;
+  email: string;
+  password: string;
+  deviceInfo: string;
+  ip: string;
 }
 
 export interface LoginRequest {
-    email: string;
-    password: string;
-    deviceInfo: string;
-    ip: string;
+  email: string;
+  password: string;
+  deviceInfo: string;
+  ip: string;
 }
 
 export interface LogoutRequest {
-    refreshToken: string;
+  refreshToken: string;
 }
 
 export interface RefreshRequest {
-    refreshToken: string;
-    deviceInfo: string;
-    ip: string;
+  refreshToken: string;
+  deviceInfo: string;
+  ip: string;
 }
 
 export interface GetProfileRequest {
-    userId: string;
+  userId: string;
 }
 
 /** --- Responses --- */
 export interface AuthResponse {
-    accessToken: string;
-    refreshToken: string;
+  accessToken: string;
+  refreshToken: string;
 }
 
 export interface LogoutResponse {
-    success: boolean;
+  success: boolean;
 }
 
 export interface ProfileResponse {
-    id: string;
-    email: string;
-    displayName?: string | undefined;
-    avatarUrl?: string | undefined;
-    createdAt: string;
+  id: string;
+  email: string;
+  displayName?: string | undefined;
+  avatarUrl?: string | undefined;
+  createdAt: string;
 }
 
-export const AUTH_V1_PACKAGE_NAME = 'auth.v1';
+export const AUTH_V1_PACKAGE_NAME = "auth.v1";
 
 export interface AuthServiceClient {
-    register(request: RegisterRequest): Observable<AuthResponse>;
+  register(request: RegisterRequest): Observable<AuthResponse>;
 
-    login(request: LoginRequest): Observable<AuthResponse>;
+  login(request: LoginRequest): Observable<AuthResponse>;
 
-    refresh(request: RefreshRequest): Observable<AuthResponse>;
+  refresh(request: RefreshRequest): Observable<AuthResponse>;
 
-    logout(request: LogoutRequest): Observable<LogoutResponse>;
+  logout(request: LogoutRequest): Observable<LogoutResponse>;
 
-    getProfile(request: GetProfileRequest): Observable<ProfileResponse>;
+  getProfile(request: GetProfileRequest): Observable<ProfileResponse>;
 }
 
 export interface AuthServiceController {
-    register(
-        request: RegisterRequest,
-    ): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
+  register(request: RegisterRequest): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
 
-    login(request: LoginRequest): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
+  login(request: LoginRequest): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
 
-    refresh(
-        request: RefreshRequest,
-    ): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
+  refresh(request: RefreshRequest): Promise<AuthResponse> | Observable<AuthResponse> | AuthResponse;
 
-    logout(
-        request: LogoutRequest,
-    ): Promise<LogoutResponse> | Observable<LogoutResponse> | LogoutResponse;
+  logout(request: LogoutRequest): Promise<LogoutResponse> | Observable<LogoutResponse> | LogoutResponse;
 
-    getProfile(
-        request: GetProfileRequest,
-    ): Promise<ProfileResponse> | Observable<ProfileResponse> | ProfileResponse;
+  getProfile(request: GetProfileRequest): Promise<ProfileResponse> | Observable<ProfileResponse> | ProfileResponse;
 }
 
 export function AuthServiceControllerMethods() {
-    return function (constructor: Function) {
-        const grpcMethods: string[] = ['register', 'login', 'refresh', 'logout', 'getProfile'];
-        for (const method of grpcMethods) {
-            const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-            GrpcMethod('AuthService', method)(constructor.prototype[method], method, descriptor);
-        }
-        const grpcStreamMethods: string[] = [];
-        for (const method of grpcStreamMethods) {
-            const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
-            GrpcStreamMethod('AuthService', method)(
-                constructor.prototype[method],
-                method,
-                descriptor,
-            );
-        }
-    };
+  return function (constructor: Function) {
+    const grpcMethods: string[] = ["register", "login", "refresh", "logout", "getProfile"];
+    for (const method of grpcMethods) {
+      const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
+      GrpcMethod("AuthService", method)(constructor.prototype[method], method, descriptor);
+    }
+    const grpcStreamMethods: string[] = [];
+    for (const method of grpcStreamMethods) {
+      const descriptor: any = Reflect.getOwnPropertyDescriptor(constructor.prototype, method);
+      GrpcStreamMethod("AuthService", method)(constructor.prototype[method], method, descriptor);
+    }
+  };
 }
 
-export const AUTH_SERVICE_NAME = 'AuthService';
+export const AUTH_SERVICE_NAME = "AuthService";

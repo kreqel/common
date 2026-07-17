@@ -1,3 +1,5 @@
+import { join } from 'path';
+
 export const PROTO_PATH = 'node_modules/@kreqel/common/dist/proto';
 
 interface Package {
@@ -7,5 +9,5 @@ interface Package {
 
 export const AUTH_PACKAGE: Package = {
     package: 'auth.v1',
-    protoPath: require.resolve('@kreqel/common/dist/proto/auth.proto'),
+    protoPath: join(PROTO_PATH, 'auth.proto'),
 };
